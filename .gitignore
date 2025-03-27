@@ -1,5 +1,7 @@
-# Model and graphs output directory
+# Project specific folders
 output
+data
+catboost_info
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
