@@ -13,6 +13,7 @@ from mlobesitylevels.constants import (
     COLUMNS_TO_SCALE,
 )
 
+
 class ObesityPreprocessor(BaseEstimator, TransformerMixin):
     def __init__(self):
         self.fitted = False
@@ -21,7 +22,9 @@ class ObesityPreprocessor(BaseEstimator, TransformerMixin):
     def _scale_data(self, data: pd.DataFrame) -> pd.DataFrame:
         scaled_data = data.copy()
 
-        scaled_data_subset = self.scaler.transform(scaled_data[COLUMNS_TO_SCALE].to_numpy())
+        scaled_data_subset = self.scaler.transform(
+            scaled_data[COLUMNS_TO_SCALE].to_numpy()
+        )
         scaled_data[COLUMNS_TO_SCALE] = scaled_data_subset
 
         return scaled_data
@@ -50,7 +53,9 @@ class ObesityPreprocessor(BaseEstimator, TransformerMixin):
         self.fitted = True
         return self
 
-    def transform(self, X: pd.DataFrame, y: Optional[pd.Series] = None) -> tuple[pd.DataFrame, Optional[pd.Series]]:
+    def transform(
+        self, X: pd.DataFrame, y: Optional[pd.Series] = None
+    ) -> tuple[pd.DataFrame, Optional[pd.Series]]:
         if not self.fitted:
             raise ValueError("Preprocessor needs to be fitted first")
 
@@ -68,5 +73,7 @@ class ObesityPreprocessor(BaseEstimator, TransformerMixin):
 
         return X_transformed, y_transformed
 
-    def fit_transform(self, X: pd.DataFrame, y: Optional[pd.Series] = None) -> tuple[pd.DataFrame, Optional[pd.Series]]:
+    def fit_transform(
+        self, X: pd.DataFrame, y: Optional[pd.Series] = None
+    ) -> tuple[pd.DataFrame, Optional[pd.Series]]:
         return self.fit(X, y).transform(X, y)
