@@ -2,10 +2,8 @@ import json
 import pickle
 import argparse
 from pathlib import Path
-from sklearn.ensemble import RandomForestClassifier
 from mlobesitylevels.trainer import ModelTrainer
 from mlobesitylevels.dataloader import DataLoader
-from mlobesitylevels.preprocessor import ObesityPreprocessor
 from mlobesitylevels.validators import ColumnValidator, TypeValidator
 
 if __name__ == "__main__":

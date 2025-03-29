@@ -72,7 +72,10 @@ if __name__ == "__main__":
 
     with open(out_path / "preprocessor.pkl", "wb") as f:
         pickle.dump(preprocessor, f)
-    with open(out_path / "model.pkl", "wb") as f:
-        pickle.dump(model, f)
+
+    if not args.crossvalidation:
+        with open(out_path / "model.pkl", "wb") as f:
+            pickle.dump(model, f)
+
     with open(out_path / "model_accuracies.json", "w") as f:
         json.dump(accuracy_report, f, indent=2)
