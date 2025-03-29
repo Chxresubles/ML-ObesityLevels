@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlobesitylevels"
+version = "0.1.0"
+description = "A machine learning project for obesity levels prediction"
+authors = [
+    {name = "Chxresubles"}
+]
+requires-python = ">=3.7"
+keywords = ["machine learning", "obesity", "health", "kaggle"]
+dependencies = [
+    "catboost==1.2.7",
+    "lightgbm==4.6.0",
+    "matplotlib==3.10.1",
+    "numpy==1.26.4",
+    "pandas==2.2.3",
+    "scikit-learn==1.6.1",
+    "seaborn==0.13.2",
+    "tqdm==4.67.1",
+    "xgboost==3.0.0",
+]  # These will be read from requirements.txt
+
+[tool.setuptools.packages.find]
+include = ["mlobesitylevels*"]
+exclude = ["data*", "catboost_info*"]
