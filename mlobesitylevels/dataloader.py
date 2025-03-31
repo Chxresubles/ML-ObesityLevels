@@ -30,6 +30,7 @@ class DataLoader:
     def get_data(self) -> tuple[pd.DataFrame, pd.Series]:
         self.data = self._load_data()
         self.data = self.data.drop_duplicates()
+        self.data = self.data.dropna()
         self.data = self._validate_data(self.data)
 
         self.features = self.data.drop(OBESITY_LEVEL, axis=1)
